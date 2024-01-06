@@ -1,0 +1,11 @@
+{
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/.sfdx": true
+  },
+  "salesforcedx-vscode-apex.java.home": "/usr/lib/jvm/java-1.17.0-openjdk-amd64",
+  "dotnetAcquisitionExtension.enableTelemetry": false,
+  "typescript.tsserver.web.projectWideIntellisense.enabled": false,
+  "salesforcedx-vscode-core.telemetry.enabled": false
+}
