@@ -5,6 +5,5 @@
 // You can also execute the entire file by running the command:
 //     SFDX: Execute Anonymous Apex with Editor Contents
 
-string tempvar = 'Enter_your_name_here';
-System.debug('Hello World!');
-System.debug('My name is ' + tempvar);
+SObject2Apex theSObject2Apex = new SObject2Apex('003Hp00002uCfy4IAC');
+theSObject2Apex.getRecordTemplate();
