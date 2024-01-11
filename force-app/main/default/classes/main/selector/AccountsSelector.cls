@@ -40,10 +40,21 @@ public class AccountsSelector extends fflib_SObjectSelector implements IAccounts
 
   public List<Account> selectWithContacts(Set<ID> accountIDSet) {
     ContactsSelector contactSelect = new ContactsSelector();
+    fflib_QueryFactory accountQueryFactory = newQueryFactory();
+    accountQueryFactory.setCondition('id in: accountIDSet');
+    contactSelect.addQueryFactorySubselect(accountQueryFactory);
+    return Database.query(accountQueryFactory.toSOQL());
+  }
+  public List<Account> selectWithContactsByBillingStateLimit(
+    String theBillingState,
+    Integer recordLimit
+  ) {
+    ContactsSelector contactSelect = new ContactsSelector();
     fflib_QueryFactory queryFactory = new fflib_QueryFactory(
       Account.SObjectType
     );
-    queryFactory.setCondition('id in: accountIDSet');
+    queryFactory.setCondition('BillingState =: theBillingState');
+    queryFactory.setLimit(recordLimit);
     contactSelect.addQueryFactorySubselect(queryFactory);
     return Database.query(queryFactory.toSOQL());
   }

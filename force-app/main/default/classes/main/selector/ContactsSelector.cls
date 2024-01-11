@@ -12,7 +12,14 @@ public class ContactsSelector extends fflib_SObjectSelector implements IContacts
       Contact.Name,
       Contact.FirstName,
       Contact.LastName,
-      Contact.Phone
+      Contact.Phone,
+      Contact.MailingAddress,
+      Contact.MailingStreet,
+      Contact.MailingCity,
+      Contact.MailingState,
+      Contact.MailingPostalCode,
+      Contact.MailingCountry,
+      Contact.MailingStreet
     };
   }
 
@@ -22,5 +29,17 @@ public class ContactsSelector extends fflib_SObjectSelector implements IContacts
 
   public List<Contact> selectAll() {
     return (List<Contact>) Database.query(newQueryFactory().toSOQL());
+  }
+
+  public List<Contact> selectByLastNameMailingPostalCode(
+    String theLastName,
+    String theMailingPostalCode
+  ) {
+    return (List<Contact>) Database.query(
+      newQueryFactory()
+        .setCondition('LastName =: theLastName')
+        .setCondition('MailingPostalCode =: theMailingPostalCode')
+        .toSOQL()
+    );
   }
 }

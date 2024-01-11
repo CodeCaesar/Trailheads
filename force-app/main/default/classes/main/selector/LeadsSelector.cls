@@ -8,6 +8,7 @@ public class LeadsSelector extends fflib_SObjectSelector implements ILeadsSelect
       Lead.Id,
       Lead.LastName,
       Lead.FirstName,
+      Lead.Name,
       Lead.Title,
       Lead.Company,
       Lead.Phone,
