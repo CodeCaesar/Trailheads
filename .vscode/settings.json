@@ -9,5 +9,6 @@
   "typescript.tsserver.web.projectWideIntellisense.enabled": false,
   "salesforcedx-vscode-core.telemetry.enabled": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "salesforcedx-vscode-core.retrieve-test-code-coverage": true
+  "salesforcedx-vscode-core.retrieve-test-code-coverage": true,
+  "git.terminalAuthentication": false
 }
