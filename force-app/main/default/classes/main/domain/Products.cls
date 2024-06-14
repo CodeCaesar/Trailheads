@@ -1,4 +1,7 @@
 public class Products extends fflib_SObjects implements IProducts {
+  private static List<Product_Geo_Mapping__mdt> PROUCTGEOMAPPINGLIST;
+  private static List<String> COUNTRYCODELIST;
+  private static List<String> PRODUCTFAMILYLIST;
   public static IProducts newInstance(List<Product2> recordList) {
     return (IProducts) Application.Domain.newInstance(recordList);
   }
@@ -17,6 +20,31 @@ public class Products extends fflib_SObjects implements IProducts {
 
   public Map<ID, Product2> getProductsMap() {
     return new Map<ID, Product2>(getProducts());
+  }
+
+  public void setCountryCodeList(List<String> countyCodeList) {
+    COUNTRYCODELIST = countyCodeList;
+  }
+
+  private void setProductFamilyList() {
+    if (PRODUCTFAMILYLIST == null) {
+      PRODUCTFAMILYLIST = new List<String>();
+      for (Product2 thisProduct : getProducts()) {
+        PRODUCTFAMILYLIST.add(thisProduct.Family);
+      }
+    }
+  }
+
+  public List<Product_Geo_Mapping__mdt> getProductGeoMappingList() {
+    setProductFamilyList();
+    if (PROUCTGEOMAPPINGLIST != null)
+      return PROUCTGEOMAPPINGLIST;
+    if (COUNTRYCODELIST == null)
+      COUNTRYCODELIST = new List<String>{ 'US' };
+    if (PRODUCTFAMILYLIST == null)
+      PRODUCTFAMILYLIST = new List<String>();
+    return ProductGeoMappingSelector.newInstance()
+      .selectByCountryAndProductFamily(COUNTRYCODELIST, PRODUCTFAMILYLIST);
   }
 
   public Map<ID, List<Equipment_Maintenance_Item__c>> getProduct2sEquipmentMaintenanceItemsMap() {

@@ -8,6 +8,9 @@ public class Application {
       Opportunity.SObjectType,
       Product2.SObjectType,
       Case.SObjectType,
+      Asset.SObjectType,
+      Insurance__c.SObjectType,
+      Claim__c.SObjectType,
       Equipment_Maintenance_Item__c.SObjectType,
       PricebookEntry.SObjectType,
       OpportunityLineItem.SObjectType,
@@ -33,7 +36,11 @@ public class Application {
       Lead.SObjectType => LeadsSelector.class,
       Case.SObjectType => CasesSelector.class,
       Product2.SObjectType => ProductsSelector.class,
-      Equipment_Maintenance_Item__c.SObjectType => EquipmentMaintenanceItemsSelector.class
+      Asset.SObjectType => AssetsSelector.class,
+      Insurance__c.SObjectType => InsurancesSelector.class,
+      Claim__c.SObjectType => ClaimsSelector.class,
+      Equipment_Maintenance_Item__c.SObjectType => EquipmentMaintenanceItemsSelector.class,
+      Product_Geo_Mapping__mdt.SObjectType => ProductGeoMappingSelector.class
     }
   );
 
@@ -46,6 +53,9 @@ public class Application {
       Contact.SObjectType => Contacts.Constructor.class,
       Opportunity.SObjectType => Opportunities.Constructor.class,
       Case.SObjectType => Cases.Constructor.class,
+      Asset.SObjectType => Assets.Constructor.class,
+      Insurance__c.SObjectType => Insurances.Constructor.class,
+      Claim__c.SObjectType => Claims.Constructor.class,
       Product2.SObjectType => Products.Constructor.class
     }
   );

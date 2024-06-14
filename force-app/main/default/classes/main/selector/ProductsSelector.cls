@@ -1,6 +1,6 @@
 public class ProductsSelector extends fflib_SObjectSelector implements IProductsSelector {
-  public static ICasesSelector newInstance() {
-    return (ICasesSelector) Application.Selector.newInstance(
+  public static IProductsSelector newInstance() {
+    return (IProductsSelector) Application.Selector.newInstance(
       Product2.SObjectType
     );
   }
@@ -18,7 +18,9 @@ public class ProductsSelector extends fflib_SObjectSelector implements IProducts
       Product2.Lifespan_Months__c,
       Product2.Replacement_Part__c,
       Product2.SourceProductId,
-      Product2.Warehouse_SKU__c
+      Product2.Warehouse_SKU__c,
+      Product2.Type,
+      Product2.Family
     };
   }
 
@@ -39,5 +41,12 @@ public class ProductsSelector extends fflib_SObjectSelector implements IProducts
       productQueryFactory
     );
     return Database.query(productQueryFactory.toSOQL());
+  }
+
+  public List<Product2> selectByProductCode(List<String> productCodeList) {
+    fflib_QueryFactory queryFactory = newQueryFactory()
+      .setCondition('ProductCode IN :productCodeList');
+
+    return (List<Product2>) Database.query(queryFactory.toSOQL());
   }
 }

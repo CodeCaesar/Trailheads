@@ -1,0 +1,13 @@
+{
+  "status": 0,
+  "result": {
+    "id": "00Daj00000BOWjsEAH",
+    "accessToken": "00Daj00000BOWjs!AQEAQD.tspAikLWH1CTxRYwQJ_.BI3ATuuLDl45LTvVq.Y.VRDKQo70yWugskC.ueY8TatcynTON4Wz4xD73H_l4BH..1nDk",
+    "instanceUrl": "https://independent-11f-dev-ed.develop.my.salesforce.com",
+    "username": "jobs@platformapisuperbadge.cloudcaesar.com",
+    "clientId": "PlatformCLI",
+    "connectedStatus": "Connected",
+    "sfdxAuthUrl": "force://PlatformCLI::5Aep861JXR2zRHPQHI75MV3Ulu5eq11HjWgt92w2aUrfb.kJGCkYeDzcr4C6pFKCPXV1LNM4KKZF3E59lXVyGoo@independent-11f-dev-ed.develop.my.salesforce.com",
+    "alias": "IntegrationCZR"
+  }
+}

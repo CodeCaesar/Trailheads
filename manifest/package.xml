@@ -33,7 +33,9 @@
 		<members>Account.SLAExpirationDate__c</members>
 		<members>Account.SLASerialNumber__c</members>
 		<members>Account.SLA__c</members>
+		<members>Account.Test_Ext_Id__c</members>
 		<members>Account.UpsellOpportunity__c</members>
+		<members>Asset.Asset_Identifier__c</members>
 		<members>Case.Date_Due__c</members>
 		<members>Case.Date_Reported__c</members>
 		<members>Case.EngineeringReqNumber__c</members>
@@ -42,18 +44,46 @@
 		<members>Case.Product__c</members>
 		<members>Case.SLAViolation__c</members>
 		<members>Case.Vehicle__c</members>
+		<members>Certification__c.Certification_Number__c</members>
+		<members>Certification__c.isActive__c</members>
+		<members>Claim__c.Asset__c</members>
+		<members>Claim__c.Contact__c</members>
+		<members>Claim__c.Description__c</members>
+		<members>Claim__c.Insurance__c</members>
+		<members>Claim__c.Status__c</members>
+		<members>Claim__c.Type__c</members>
 		<members>Contact.Languages__c</members>
 		<members>Contact.Level__c</members>
+		<members>Contact.Pilot_Rating__c</members>
+		<members>Contact_Certification__c.Certification__c</members>
+		<members>Contact_Certification__c.Contact__c</members>
+		<members>Contact_Certification__c.Issue_Date__c</members>
+		<members>Contact_Certification__c.isActive__c</members>
 		<members>Equipment_Maintenance_Item__c.Equipment__c</members>
 		<members>Equipment_Maintenance_Item__c.Maintenance_Cycle__c</members>
 		<members>Equipment_Maintenance_Item__c.Maintenance_Request__c</members>
 		<members>Equipment_Maintenance_Item__c.Quantity__c</members>
 		<members>How_We_Roll_Settings__c.Is_Data_Created__c</members>
+		<members>Insurance__c.Active__c</members>
+		<members>Insurance__c.Asset__c</members>
+		<members>Insurance__c.Coverage__c</members>
+		<members>Insurance__c.End_Date__c</members>
+		<members>Insurance__c.Start_Date__c</members>
 		<members>Lead.CurrentGenerators__c</members>
 		<members>Lead.NumberofLocations__c</members>
 		<members>Lead.Primary__c</members>
 		<members>Lead.ProductInterest__c</members>
 		<members>Lead.SICCode__c</members>
+		<members>Mission__c.Completed_Date__c</members>
+		<members>Mission__c.Completion_Rating__c</members>
+		<members>Mission__c.Description__c</members>
+		<members>Mission__c.Overall_Rating__c</members>
+		<members>Mission__c.Pay__c</members>
+		<members>Mission__c.Pilot__c</members>
+		<members>Mission__c.Safety_Incidents__c</members>
+		<members>Mission__c.Status__c</members>
+		<members>Mission__c.Subject__c</members>
+		<members>Mission__c.Target_Date__c</members>
 		<members>Opportunity.CurrentGenerators__c</members>
 		<members>Opportunity.DeliveryInstallationStatus__c</members>
 		<members>Opportunity.MainCompetitors__c</members>
@@ -65,6 +95,9 @@
 		<members>Product2.Maintenance_Cycle__c</members>
 		<members>Product2.Replacement_Part__c</members>
 		<members>Product2.Warehouse_SKU__c</members>
+		<members>Product_Geo_Mapping__mdt.Country_Code__c</members>
+		<members>Product_Geo_Mapping__mdt.Permissible_Fly_Zone__c</members>
+		<members>Product_Geo_Mapping__mdt.Product_Family__c</members>
 		<members>Vehicle__c.Air_Conditioner__c</members>
 		<members>Vehicle__c.Awning__c</members>
 		<members>Vehicle__c.Backup_Camera_Monitor__c</members>
@@ -85,17 +118,32 @@
 		<members>Vehicle__c.Tub__c</members>
 		<members>Vehicle__c.Type__c</members>
 		<members>Vehicle__c.VIN_Number__c</members>
+		<members>Warranty__c.Asset__c</members>
+		<members>Warranty__c.End_Date__c</members>
+		<members>Warranty__c.Start_Date__c</members>
+		<members>Warranty__c.Type__c</members>
 		<name>CustomField</name>
 	</types>
 	<types>
+		<members>*</members>
+		<name>CustomMetadata</name>
+	</types>
+	<types>
 		<members>Account</members>
+		<members>Asset</members>
 		<members>Case</members>
+		<members>Certification__c</members>
+		<members>Claim__c</members>
 		<members>Contact</members>
 		<members>Equipment_Maintenance_Item__c</members>
+		<members>Error_Log__c</members>
 		<members>How_We_Roll_Settings__c</members>
+		<members>Insurance__c</members>
 		<members>Lead</members>
+		<members>Mission__c</members>
 		<members>Opportunity</members>
 		<members>Product2</members>
+		<members>Product_Geo_Mapping__mdt</members>
 		<members>Vehicle__c</members>
 		<name>CustomObject</name>
 	</types>
