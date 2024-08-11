@@ -56,6 +56,7 @@ public class AccountsSelector extends fflib_SObjectSelector implements IAccounts
     queryFactory.setCondition('BillingState =: theBillingState');
     queryFactory.setLimit(recordLimit);
     contactSelect.addQueryFactorySubselect(queryFactory);
+    contactSelect.
     return Database.query(queryFactory.toSOQL());
   }
 }

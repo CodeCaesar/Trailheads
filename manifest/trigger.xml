@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>WarehouseCalloutService</members>
+        <members>WarehouseCalloutServiceMock</members>
+        <members>WarehouseCalloutServiceTest</members>
+        <members>WarehouseSyncSchedule</members>
+        <members>WarehouseSyncScheduleTest</members>
+        <name>ApexClass</name>
+    </types>
+    <version>58.0</version>
+</Package>

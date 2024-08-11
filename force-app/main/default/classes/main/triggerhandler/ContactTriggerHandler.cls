@@ -1,4 +1,4 @@
-public inherited sharing class ContactTriggerHandler extends fflib_SObjectDomain {
+public class ContactTriggerHandler extends fflib_SObjectDomain {
   public ContactTriggerHandler(List<Opportunity> sObjectList) {
     // Domain classes are initialised with lists to enforce bulkification throughout
     super(sObjectList);

@@ -3,7 +3,7 @@
 public class AsyncParksServices {
   public class byCountryResponseFuture extends System.WebServiceCalloutFuture {
     public String[] getValue() {
-      parksServices.byCountryResponse response = (parksServices.byCountryResponse) System.WebServiceCallout.endInvoke(
+      ParkService.byCountryResponse response = (ParkService.byCountryResponse) System.WebServiceCallout.endInvoke(
         this
       );
       return response.return_x;
@@ -22,7 +22,7 @@ public class AsyncParksServices {
       System.Continuation continuation,
       String arg0
     ) {
-      parksServices.byCountry request_x = new parksServices.byCountry();
+      ParkService.byCountry request_x = new ParkService.byCountry();
       request_x.arg0 = arg0;
       return (AsyncParksServices.byCountryResponseFuture) System.WebServiceCallout.beginInvoke(
         this,

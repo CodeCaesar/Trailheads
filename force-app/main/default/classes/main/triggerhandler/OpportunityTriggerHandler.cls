@@ -1,4 +1,4 @@
-public inherited sharing class OpportunityTriggerHandler extends fflib_SObjectDomain {
+public class OpportunityTriggerHandler extends fflib_SObjectDomain {
   public OpportunityTriggerHandler(List<Opportunity> sObjectList) {
     // Domain classes are initialised with lists to enforce bulkification throughout
     super(sObjectList);
