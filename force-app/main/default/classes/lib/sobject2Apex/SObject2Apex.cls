@@ -5,9 +5,8 @@ global class SObject2Apex {
   public SObject2Apex(Id recordId) {
     SObjectType sObjType = recordId.getSObjectType();
     String objectName = sObjType.getDescribe().getName();
-    String objectLabel = sObjType.getDescribe().getLabel();
     SObject record = Database.query(
-      buildQuery(sObjType) + ' WHERE Id = :recordId'
+      QueryBuilder.build(sObjType) + ' WHERE Id = :recordId'
     );
     List<String> copiable = new List<String>();
     Map<String, Schema.SObjectField> fieldMap = sObjType.getDescribe()
@@ -19,13 +18,7 @@ global class SObject2Apex {
         copiable.add(description.getName());
       }
     }
-    this.recordTemplate =
-      objectName +
-      ' this' +
-      objectLabel +
-      ' = new ' +
-      objectName +
-      '(';
+    this.recordTemplate = objectName + ' record = new ' + objectName + '(';
     for (String fieldName : copiable) {
       String f = formatField(record.get(fieldName));
       if (f != null)
@@ -34,10 +27,6 @@ global class SObject2Apex {
     this.recordTemplate = this.recordTemplate.removeEnd(', ');
     this.recordTemplate += ');';
     System.debug(this.recordTemplate);
-  }
-
-  public String getRecordTemplate() {
-    return this.recordTemplate;
   }
 
   @testVisible
@@ -69,16 +58,5 @@ global class SObject2Apex {
       return String.valueOf(fieldValue);
     }
     return '\'' + String.valueOf(fieldValue) + '\'';
-  }
-
-  public static String buildQuery(SObjectType sObjType) {
-    String obj_name = sObjType.getDescribe().getName();
-    String query = 'SELECT ';
-    for (String field : sObjType.getDescribe().fields.getMap().keySet()) {
-      query += field + ', ';
-    }
-    query = query.removeEnd(', ');
-    query += ' FROM ' + obj_name;
-    return query;
   }
 }

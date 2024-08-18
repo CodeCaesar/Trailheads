@@ -5,4 +5,11 @@ private class TEST_Animals {
     Animals obj = Animals.parse(json);
     System.assert(obj != null);
   }
+
+  @isTest
+  static void testGetCallout() {
+    Test.setMock(HttpCalloutMock.class, new AnimalLocatorMock());
+    String result = AnimalLocator.getAnimalNameById(1);
+    Assert.areEqual('chicken', result);
+  }
 }
