@@ -46,4 +46,19 @@ public class AssetsSelector extends fflib_SObjectSelector implements IAssetsSele
     insurancesSelector.addQueryFactorySubselect(assetQueryFactory);
     return Database.query(assetQueryFactory.toSOQL());
   }
+
+  public List<Asset> selectWithInsurancesAndClaims(
+    List<String> assetsIdentifierList
+  ) {
+    InsurancesSelector insurancesSelector = new InsurancesSelector();
+    ClaimsSelector thisClaimsSelector = new ClaimsSelector();
+    fflib_QueryFactory assetQueryFactory = newQueryFactory();
+    assetQueryFactory.setCondition(
+      'Asset_Identifier__c in :assetsIdentifierList'
+    );
+    insurancesSelector.addQueryFactorySubselect(assetQueryFactory);
+    thisClaimsSelector.addQueryFactorySubselect(assetQueryFactory);
+    System.debug(assetQueryFactory.toSOQL());
+    return Database.query(assetQueryFactory.toSOQL());
+  }
 }

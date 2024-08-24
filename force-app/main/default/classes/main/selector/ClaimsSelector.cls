@@ -45,4 +45,23 @@ public class ClaimsSelector extends fflib_SObjectSelector implements IClaimsSele
         .toSOQL()
     );
   }
+
+  public List<Claim__c> selectWithInsuranceCoverage(List<String> assetIdsList) {
+    return Database.query(
+      newQueryFactory()
+        .selectField('Insurance__r.Coverage__c')
+        .setCondition('Asset__c IN :assetIdsList')
+        .toSOQL()
+    );
+  }
+
+  public List<Claim__c> selectAll() {
+    return (List<Claim__c>) Database.query(newQueryFactory().toSOQL());
+  }
+
+  public List<Claim__c> selectWithAssetID(Set<ID> assetIdsSet) {
+    return Database.query(
+      newQueryFactory().setCondition('Asset__c IN :assetIdsSet').toSOQL()
+    );
+  }
 }

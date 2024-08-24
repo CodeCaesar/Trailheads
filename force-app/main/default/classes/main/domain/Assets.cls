@@ -36,6 +36,20 @@ public class Assets extends fflib_SObjects implements IAssets {
     return assetsInsurancesMap;
   }
 
+  public Map<ID, List<Claim__c>> getAssetsClaimsMap() {
+    Map<ID, List<Claim__c>> assetsClaimsMap = new Map<ID, List<Claim__c>>();
+    for (Asset thisAsset : getAssets()) {
+      for (Claim__c thisClaim : thisAsset.Claims__r) {
+        if (assetsClaimsMap.get(thisAsset.ID) == null) {
+          assetsClaimsMap.put(thisAsset.ID, new List<Claim__c>{ thisClaim });
+        } else {
+          assetsClaimsMap.get(thisAsset.ID).add(thisClaim);
+        }
+      }
+    }
+    return assetsClaimsMap;
+  }
+
   public class Constructor implements fflib_IDomainConstructor {
     public fflib_SObjects construct(List<Object> objectList) {
       return new Assets((List<SObject>) objectList);

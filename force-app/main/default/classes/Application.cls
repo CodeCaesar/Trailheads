@@ -11,6 +11,8 @@ public class Application {
       Asset.SObjectType,
       Insurance__c.SObjectType,
       Claim__c.SObjectType,
+      Certification__C.SObjectType,
+      Contact_Certification__c.SObjectType,
       Equipment_Maintenance_Item__c.SObjectType,
       PricebookEntry.SObjectType,
       OpportunityLineItem.SObjectType,
@@ -39,6 +41,8 @@ public class Application {
       Asset.SObjectType => AssetsSelector.class,
       Insurance__c.SObjectType => InsurancesSelector.class,
       Claim__c.SObjectType => ClaimsSelector.class,
+      Certification__C.SObjectType => ContactCertifications.class,
+      Contact_Certification__c.SObjectType => ContactCertificationsSelector.class,
       Equipment_Maintenance_Item__c.SObjectType => EquipmentMaintenanceItemsSelector.class,
       Product_Geo_Mapping__mdt.SObjectType => ProductGeoMappingSelector.class
     }
@@ -56,6 +60,8 @@ public class Application {
       Asset.SObjectType => Assets.Constructor.class,
       Insurance__c.SObjectType => Insurances.Constructor.class,
       Claim__c.SObjectType => Claims.Constructor.class,
+      Certification__C.SObjectType => Certifications.Constructor.class,
+      Contact_Certification__c.SObjectType => ContactCertifications.Constructor.class,
       Product2.SObjectType => Products.Constructor.class
     }
   );
