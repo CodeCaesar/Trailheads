@@ -1,31 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
-		<members>*</members>
-		<name>ApexClass</name>
-	</types>
-	<types>
-		<members>*</members>
-		<name>ApexComponent</name>
-	</types>
-	<types>
-		<members>*</members>
-		<name>ApexPage</name>
-	</types>
-	<types>
-		<members>*</members>
-		<name>ApexTestSuite</name>
-	</types>
-	<types>
-		<members>*</members>
-		<name>ApexTrigger</name>
-	</types>
-	<types>
-		<members>*</members>
-		<name>AuraDefinitionBundle</name>
-	</types>
-	<types>
-		<members>Account.Active__c</members>
 		<members>Account.CustomerPriority__c</members>
 		<members>Account.Match_Billing_Address__c</members>
 		<members>Account.Number_Of_Contacts__c</members>
@@ -36,10 +11,6 @@
 		<members>Account.Test_Ext_Id__c</members>
 		<members>Account.UpsellOpportunity__c</members>
 		<members>Asset.Asset_Identifier__c</members>
-		<members>Asset_Delivery__e.Asset_Identifier__c</members>
-		<members>Asset_Delivery__e.Status__c</members>
-		<members>Asset_Disconnection__e.Asset_Identifier__c</members>
-		<members>Asset_Disconnection__e.Disconnected__c</members>
 		<members>Case.Date_Due__c</members>
 		<members>Case.Date_Reported__c</members>
 		<members>Case.EngineeringReqNumber__c</members>
@@ -56,9 +27,6 @@
 		<members>Claim__c.Insurance__c</members>
 		<members>Claim__c.Status__c</members>
 		<members>Claim__c.Type__c</members>
-		<members>Cloud_New__e.Location__c</members>
-		<members>Cloud_New__e.News_Content__c</members>
-		<members>Cloud_New__e.Urgent__c</members>
 		<members>Contact.Languages__c</members>
 		<members>Contact.Level__c</members>
 		<members>Contact.Pilot_Rating__c</members>
@@ -96,8 +64,6 @@
 		<members>Opportunity.MainCompetitors__c</members>
 		<members>Opportunity.OrderNumber__c</members>
 		<members>Opportunity.TrackingNumber__c</members>
-		<members>Order_Event__e.Has_Shipped__c</members>
-		<members>Order_Event__e.Order_Number__c</members>
 		<members>Product2.Cost__c</members>
 		<members>Product2.Current_Inventory__c</members>
 		<members>Product2.Lifespan_Months__c</members>
@@ -143,9 +109,7 @@
 		<members>Case</members>
 		<members>Certification__c</members>
 		<members>Claim__c</members>
-		<members>Cloud_New__e</members>
 		<members>Contact</members>
-		<members>Contact_Certification__c</members>
 		<members>Equipment_Maintenance_Item__c</members>
 		<members>Error_Log__c</members>
 		<members>How_We_Roll_Settings__c</members>
@@ -153,11 +117,9 @@
 		<members>Lead</members>
 		<members>Mission__c</members>
 		<members>Opportunity</members>
-		<members>Order_Event__e</members>
 		<members>Product2</members>
 		<members>Product_Geo_Mapping__mdt</members>
 		<members>Vehicle__c</members>
-		<members>Warranty__c</members>
 		<name>CustomObject</name>
 	</types>
 	<types>
