@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>TEST_Account</members>
+        <members>TEST_Animals</members>
+        <members>TEST_Assets</members>
+        <members>TEST_CSUtils</members>
+        <members>TEST_Cases</members>
+        <members>TEST_Certifications</members>
+        <members>TEST_Contacts</members>
+        <members>TEST_Leads</members>
+        <members>TEST_Missions</members>
+        <members>TEST_ParkLocator</members>
+        <members>TEST_Products</members>
+        <members>TEST_VerifyDate</members>
+        <members>TEST_Warehouse</members>
+        <name>ApexClass</name>
+    </types>
+    <version>58.0</version>
+</Package>

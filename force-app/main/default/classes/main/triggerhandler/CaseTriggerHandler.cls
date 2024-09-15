@@ -39,7 +39,7 @@ public class CaseTriggerHandler extends fflib_SObjectDomain {
 
   public class Constructor implements fflib_SObjectDomain.IConstructable {
     public fflib_SObjectDomain construct(List<SObject> sObjectList) {
-      return new MaintenanceRequestHelper(sObjectList);
+      return new CaseTriggerHandler(sObjectList);
     }
   }
 }

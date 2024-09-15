@@ -4,7 +4,7 @@
     "**/bower_components": true,
     "**/.sfdx": true
   },
-  "salesforcedx-vscode-apex.java.home": "/usr/lib/jvm/java-1.17.0-openjdk-amd64",
+  "salesforcedx-vscode-apex.java.home": "C:\\\\Program Files\\\\Zulu\\\\zulu-21",
   "dotnetAcquisitionExtension.enableTelemetry": false,
   "typescript.tsserver.web.projectWideIntellisense.enabled": false,
   "salesforcedx-vscode-core.telemetry.enabled": false,

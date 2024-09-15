@@ -123,6 +123,10 @@
 		<name>CustomObject</name>
 	</types>
 	<types>
+        <members>*</members>
+        <name>ApexClass</name>
+    </types>
+	<types>
 		<members>Admin</members>
 		<members>Minimum Access - API Only Integrations</members>
 		<members>Minimum Access - Salesforce</members>

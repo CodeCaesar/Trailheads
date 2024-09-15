@@ -16,6 +16,8 @@ public class ProductsSelector extends fflib_SObjectSelector implements IProducts
       Product2.Maintenance_Cycle__c,
       Product2.Lifespan_Months__c,
       Product2.Lifespan_Months__c,
+      Product2.Quantity_Remaining__c,
+      Product2.Quantity_Ordered__c,
       Product2.Replacement_Part__c,
       Product2.SourceProductId,
       Product2.Warehouse_SKU__c,

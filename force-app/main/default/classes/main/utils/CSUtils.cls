@@ -540,4 +540,117 @@ public with sharing class CSUtils {
 
     return objectList;
   }
+
+  public static Map<Integer, Object> extractUserIds(List<User> users) {
+    Map<Integer, Object> userIdsMap = new Map<Integer, Object>();
+    for (Integer i = 0; i < users.size(); i++) {
+        userIdsMap.put(i, users[i].Id);
+    }
+    return userIdsMap;
+  }
+
+  public  static Date getStartDate() {
+    Date today = Date.today();
+    
+    Integer currentYear = today.year();
+    Integer currentMonth = today.month();
+    
+    Integer previousQuarterStartMonth = ((currentMonth - 1) / 3) * 3 + 1 - 3;
+    
+    if (previousQuarterStartMonth <= 0) {
+        previousQuarterStartMonth += 12;
+        currentYear--;
+    }
+    
+    Date previousQuarterStartDate = Date.newInstance(currentYear, previousQuarterStartMonth, 1);
+    return previousQuarterStartDate;
+}
+
+public static Date getEndDate() {
+  Date previousQuarterStartDate = getStartDate();
+  Date previousQuarterEndDate = previousQuarterStartDate.addMonths(3).addDays(-1);
+      return previousQuarterEndDate;
+}
+
+  /**
+   * @name convertListToIdSet
+   * @description Converts a list of SObject records to a set of Ids
+   * @param sObjectList The list of SObject records to be converted
+   * @return A set of Ids containing the Ids of the SObject records
+   **/
+  public static Set<Id> convertListToIdSet(List<SObject> sObjectList) {
+    Set<Id> idSet = new Set<Id>();
+    for (SObject record : sObjectList) {
+        idSet.add(record.Id);
+    }
+    return idSet;
+  }
+  public static List<Id> convertListToIdList(List<SObject> sObjectList) {
+
+    return new List<ID>(convertListToIdSet(sObjectList));
+  }
+
+  public static List<Object> getPicklistValues(String sObjectApiName, String fieldApiName) {
+    List<Object> picklistValues = new List<Object>();
+    
+    // Get the describe information for the SObject
+    Schema.SObjectType sObjectType = Schema.getGlobalDescribe().get(sObjectApiName);
+    if (sObjectType == null) {
+        throw new IllegalArgumentException('Invalid SObject API name: ' + sObjectApiName);
+    }
+    
+    // Get the describe information for the field
+    Schema.DescribeSObjectResult sObjectDescribe = sObjectType.getDescribe();
+    Map<String, Schema.SObjectField> fieldsMap = sObjectDescribe.fields.getMap();
+    Schema.SObjectField sObjectField = fieldsMap.get(fieldApiName);
+    if (sObjectField == null) {
+        throw new IllegalArgumentException('Invalid Field API name: ' + fieldApiName);
+    }
+    
+    // Get the describe information for the field
+    Schema.DescribeFieldResult fieldDescribe = sObjectField.getDescribe();
+    if (fieldDescribe.getType() != Schema.DisplayType.Picklist) {
+        throw new IllegalArgumentException('Field is not a picklist: ' + fieldApiName);
+    }
+    
+    // Retrieve the picklist values
+    List<Schema.PicklistEntry> picklistEntries = fieldDescribe.getPicklistValues();
+    for (Schema.PicklistEntry entry : picklistEntries) {
+        picklistValues.add(entry.getLabel());
+    }
+    
+    return picklistValues;
+}
+
+public static void debugSObjectList(List<SObject> sObjectList) {
+  if (sObjectList == null || sObjectList.isEmpty()) {
+      System.debug('The list is empty or null.');
+      return;
+  }
+  
+  for (SObject record : sObjectList) {
+      System.debug('Record: ' + record);
+  }
+}
+public static List<SObject> getSubList(List<SObject> sObjectList, Integer indexStart, Integer indexEnd) {
+  // Validate the indices
+  if (indexStart < 1 || indexEnd > sObjectList.size() || indexStart > indexEnd) {
+      throw new IllegalArgumentException('Invalid indices for sublist.');
+  }
+
+  // Adjust indices to be zero-based
+  Integer startIndex = indexStart - 1;
+  Integer endIndex = indexEnd - 1;
+
+  // Create a new list to store the sublist
+  List<SObject> subList = new List<SObject>();
+
+  // Iterate through the original list and add elements within the specified range to the new list
+  for (Integer i = startIndex; i <= endIndex; i++) {
+      subList.add(sObjectList[i]);
+  }
+
+  // Return the new list
+  return subList;
+}
 }

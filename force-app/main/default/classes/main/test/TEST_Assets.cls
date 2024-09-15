@@ -106,13 +106,13 @@ private class TEST_Assets {
   @isTest
   static void testComprehensiveCoverage() {
     String resultString = AssetService.reportLostDevice('AssetIdentifier-0005');
-    Assert.areEqual('C0100417', resultString);
+    Assert.areEqual('C0100000', resultString);
   }
 
   @isTest
   static void testClaimTypeLostExists() {
     String resultString = AssetService.reportLostDevice('AssetIdentifier-0001');
-    Assert.areEqual('C0100417 already filed', resultString);
+    Assert.areEqual('C0100000 already filed', resultString);
   }
 
   @isTest

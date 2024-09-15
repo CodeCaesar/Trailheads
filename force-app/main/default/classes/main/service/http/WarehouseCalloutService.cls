@@ -48,4 +48,3 @@ public with sharing class WarehouseCalloutService implements Queueable, Database
 //     );
 //     return thisResult.animal.name;
 //   }
-

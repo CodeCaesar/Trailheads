@@ -1,0 +1,61 @@
+<apex:page standardController="Product2" extensions="Product2Extension" lightningStylesheets="true">
+    <apex:sectionHeader title="New Product" subtitle="Add Inventory" />
+    <apex:form id="form">
+        <apex:pageMessages id="pageMessages" />
+        <apex:actionRegion>
+            <apex:pageBlock title="Existing Inventory">
+                <apex:outputPanel id="chartPanel">
+                    <apex:chart data="{!inventory}" height="400" width="600">
+                        <apex:legend position="top"/>
+                        <apex:axis type="Category" position="left" fields="name" title="{!$ObjectType.Product2.fields.Family.label}"/>
+                        <apex:axis type="Numeric" position="bottom" fields="val" title="{!$ObjectType.Product2.fields.Quantity_Remaining__c.label}"/>
+                        <apex:barSeries orientation="horizontal" axis="bottom" xField="val" yField="name">
+                        </apex:barSeries>
+                    </apex:chart>
+                </apex:outputPanel>
+            </apex:pageBlock>
+            <apex:pageBlock title="New Products">
+                <apex:pageBlockButtons location="top">
+                    <apex:commandButton action="{!save}" value="Save" reRender="chartPanel"/>
+                </apex:pageBlockButtons>
+                <apex:pageBlockButtons location="bottom">
+                    <apex:commandButton action="{!addRows}" value="Add" reRender="orderItemTable,pageMessages"/>
+                </apex:pageBlockButtons>
+                    <apex:pageBlockTable value="{!productsToInsert}" var="p" id="orderItemTable">
+                        <apex:column>
+                            <apex:facet name="header">
+                                <apex:outputLabel value="{!$ObjectType.Product2.fields.Name.label}" />
+                            </apex:facet>
+                            <apex:inputText value="{!p.productRecord.Name}" />
+                        </apex:column>
+                        <apex:column>
+                            <apex:facet name="header">
+                                <apex:outputLabel value="{!$ObjectType.Product2.fields.Family.label}" />
+                            </apex:facet>
+                            <apex:selectList value="{!p.productRecord.Family}" size="1" multiselect="false">
+                                <apex:selectOptions value="{!familyOptions}" />
+                            </apex:selectList>
+                        </apex:column>
+                        <apex:column>
+                            <apex:facet name="header">
+                                <apex:outputLabel value="{!$ObjectType.Product2.fields.IsActive.label}" />
+                            </apex:facet>
+                            <apex:inputField value="{!p.productRecord.IsActive}" />
+                        </apex:column>
+                        <apex:column>
+                            <apex:facet name="header">
+                                <apex:outputLabel value="{!$ObjectType.PriceBookEntry.fields.UnitPrice.label}" />
+                            </apex:facet>
+                            <apex:inputText value="{!p.pricebookEntryRecord.UnitPrice}" />
+                        </apex:column>
+                        <apex:column>
+                            <apex:facet name="header">
+                                <apex:outputLabel value="{!$ObjectType.Product2.fields.Initial_Inventory__c.label}" />
+                            </apex:facet>
+                            <apex:inputField value="{!p.productRecord.Initial_Inventory__c}" />
+                        </apex:column>
+                    </apex:pageBlockTable>
+            </apex:pageBlock>
+        </apex:actionRegion>
+    </apex:form>
+</apex:page>
